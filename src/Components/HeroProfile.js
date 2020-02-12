@@ -94,7 +94,7 @@ const HeroProfile = (props) => {
       </div>
       <div className="hero_profile_btn">
         <div className="pointer">剩餘點數: {remain}</div>
-        <button className={remain === 0 ? 'save_btn btn_disabled' : 'save_btn'} onClick={patchProfile} disabled={remain === 0}>儲存</button>
+        <button className={remain !== 0 ? 'save_btn btn_disabled' : 'save_btn'} onClick={patchProfile} disabled={remain !== 0}>儲存</button>
       </div>
     </div>
   );

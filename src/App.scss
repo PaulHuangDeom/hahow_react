@@ -9,7 +9,7 @@ html, body, #root {
 }
 
 .App {
-	min-height: 100%;
+	padding: 50px 0;
 }
 
 .App .container {
@@ -18,20 +18,30 @@ html, body, #root {
 
 	.hero_list {
 		width: 100%;
-		margin-top: 50px;
 		margin-bottom: 30px;
+		border: 2px solid #ccc;
+		border-radius: 5px;
 	}
 	.hero_card {
 		display: inline-block;
 		width: calc(100% / 4 - 20px);
 		min-width: 150px;
+		padding: 5px;
 		margin: 10px;
 		box-sizing: border-box;
 		vertical-align: top;
+		text-align: center;
+		border-radius: 3px;
+		border: 2px solid rgba(0,0,0,0.5);
+		overflow: hidden;
+		transition-duration: 0.3s;
 		a {
 			display: block;
 			text-decoration: none;
-			color: #222
+			color: #7d7b7b;
+			border-radius: 3px;
+			cursor: pointer;
+			transition-duration: 0.3s;
 		}
 		img {
 			width: 100%;
@@ -40,16 +50,25 @@ html, body, #root {
 		}
 		.hero_card_name {
 			padding: 10px 0;
-			text-align: center;
+		}
+		&.active {
+			background-color: #ff3838;
+			border-width: 3px;
+			a {
+				color: #fff;
+			}
 		}
 	}
 	.hero_profile {
 		display: flex;
+		padding: 15px 10px;
 		justify-content: center;
+		border: 2px solid #ccc;
+		border-radius: 5px;
 	}
 	.hero_profile_info {
 		flex: 0.8;
-		padding: 10px 50px;
+		padding: 10px 50px 10px 0;
 		.info_item {
 			width: 300px;
 			margin-bottom: 10px;
@@ -77,11 +96,17 @@ html, body, #root {
 			border: 1px solid #222;
 			border-radius: 3px;
 			vertical-align: middle;
+			background-color: #545b62;
+			color: #fff;
 			cursor: pointer;
 			transition-duration: 0.3s;
-			&:hover {
-				background-color: #ccefef;
+			&:hover:not(.btn_disabled) {
+				background-color: #282b2e;
 				border-color: #fff;
+			}
+			&.btn_disabled {
+				background-color: #cdcdcd;
+				cursor: initial;
 			}
 		}
 	}
@@ -103,11 +128,17 @@ html, body, #root {
 			vertical-align: middle;
 			letter-spacing: 10px;
 			text-align: center;
+			background-color: #545b62;
+			color: #fff;
 			transition-duration: 0.3s;
 			cursor: pointer;
-			&:hover {
-				background-color: #ccefef;
+			&:hover:not(.btn_disabled) {
+				background-color: #282b2e;
 				border-color: #fff;
+			}
+			&.btn_disabled {
+				background-color: #cdcdcd;
+				cursor: initial;
 			}
 
 		}
