@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
+import Swal from 'sweetalert2';
 import axios from "axios";
 const HeroProfile = (props) => {
   let {heroId} = useParams();
@@ -26,10 +27,17 @@ const HeroProfile = (props) => {
   const patchProfile = () => {
     axios.patch(`http://hahow-recruit.herokuapp.com/heroes/${heroId}/profile`, JSON.stringify(profile),{
       headers: {
-        // 'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
       }
     })
-		.then(res =>　alert("ok"))
+		.then(res =>　{
+      Swal.fire({
+        icon: 'success',
+        title: '儲存成功',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
 		.catch(err => console.log(err))
   };
   const addHandler = (key) => {
